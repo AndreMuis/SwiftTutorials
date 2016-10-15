@@ -1,21 +1,23 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
-let string1 : String = "Andre"
-let string2 : String = " Muis"
+// String Concatenation
 
-let concantenatedString : String = string1 + string2
+let firstName : String = "Andre"
+let lastName : String = " Muis"
 
+let fullName : String = firstName + lastName
+
+
+// String Interpolation
 
 let age : Int = 42
-let interpolation : String = "I am \(age) years old."
+let sentence : String = "I am \(age) years old."
 
 
-string1.characters.count
+firstName.characters.count
 
 
-string1 == string2
+firstName == lastName
 
 

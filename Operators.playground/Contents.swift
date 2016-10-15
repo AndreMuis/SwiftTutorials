@@ -1,11 +1,7 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 let result1 : Int = 10 % 3
-
-let result2 : Float = 7 % 2.5
 
 
 let a : Int = 5

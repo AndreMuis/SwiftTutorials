@@ -1,51 +1,48 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Overloading
 
-struct BodyParts
+struct TicTacToeGrid
 {
-    var people : [String] = ["Andre", "Lottie", "Jake"]
-    var parts : [String] = ["head", "arms", "feet"]
+    var squares : [[String]]
     
-    subscript(personIndex : Int) -> String
+    subscript(rowIndex : Int) -> [String]
     {
         get
         {
-            return self.people[personIndex]
-        }
-        
-        set
-        {
-            if (personIndex < self.people.count)
-            {
-                self.people[personIndex] = newValue
-            }
+            return self.squares[rowIndex]
         }
     }
     
-    subscript(personIndex : Int, partIndex : Int) -> (String, String)
+    subscript(rowIndex : Int, columnIndex : Int) -> String
     {
         get
         {
-            return (self.people[personIndex], self.parts[partIndex])
+            return self.squares[rowIndex][columnIndex]
+        }
+        
+        set(newValue)
+        {
+            self.squares[rowIndex][columnIndex] = newValue
         }
     }
 }
 
 
-var bodyParts : BodyParts = BodyParts()
+var grid : TicTacToeGrid = TicTacToeGrid(squares: [["X", "O", "-"], ["-", "X", "-"], ["X", "-", "-"]])
 
-bodyParts[0]
-
-bodyParts.people
-bodyParts[2] = "Ted"
-bodyParts.people
+grid[0]
 
 
-bodyParts[0, 1]
+grid.squares
+
+grid[2, 2]
+
+grid[2, 2] = "X"
+
+grid.squares
+
 
 
 

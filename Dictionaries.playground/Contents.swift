@@ -1,8 +1,7 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
-var person : Dictionary<String, String> =
+var person : [String : String] =
 [
     "firstName" : "Andre",
     "lastName" : "Muis"
@@ -16,12 +15,6 @@ person
 
 person["middleName"] = nil
 person
-
-
-
-
-
-
 
 
 

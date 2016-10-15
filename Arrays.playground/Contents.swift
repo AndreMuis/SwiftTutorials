@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 var array1 : [String] = ["a", "b", "c"]
@@ -23,23 +21,23 @@ numbers.append(4)
 
 numbers += [50]
 
-numbers.appendContentsOf([8, 9])
+numbers.append(contentsOf: [8, 9])
 
 
 numbers[4] = 5
 numbers
 
 
-numbers.indexOf(3)
+numbers.index(of: 3)
 
 
 numbers.contains(3)
 numbers.contains(0)
 
 
-numbers.insert(0, atIndex: 0)
+numbers.insert(0, at: 0)
 
-numbers.insertContentsOf([6, 7], at: 6)
+numbers.insert(contentsOf: [6, 7], at: 6)
 
 
 let rangeExclusive = 1..<3
@@ -49,13 +47,13 @@ let rangeInclusive = 1...3
 numbers[rangeInclusive]
 
 
-numbers.replaceRange(1...3, with: [11, 12, 13])
+numbers.replaceSubrange(1...3, with: [11, 12, 13])
 
 
 numbers.removeLast()
 numbers
 
-numbers.removeAtIndex(0)
+numbers.remove(at: 0)
 numbers
 
 numbers.removeAll()
@@ -73,16 +71,16 @@ func reverseSort(item1 : Int, item2 : Int) -> Bool
 }
 
 
-numbers.sort(reverseSort)
+numbers.sorted(by: reverseSort)
 numbers
 
-numbers.sortInPlace(reverseSort)
+numbers.sort(by: reverseSort)
 numbers
 
 
 numbers = [1, 2, 3]
 
-numbers.sortInPlace{$1 < $0}
+numbers.sort{$0 > $1}
 numbers
 
 

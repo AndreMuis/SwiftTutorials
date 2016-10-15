@@ -1,19 +1,18 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 let any : Any = "Andre"
 
 
-var anyObject : AnyObject = 100
+var anyObject : AnyObject = 100 as AnyObject
 
-anyObject = "cat"
+anyObject = "cat" as AnyObject
 
 
 let anyClass : AnyClass = NSObject().classForCoder
 
 
-let array : [AnyObject] = ["house", 100, 3]
+let array : [AnyObject] = ["house" as AnyObject, 100 as AnyObject, 3 as AnyObject]
 
 array[1]
 

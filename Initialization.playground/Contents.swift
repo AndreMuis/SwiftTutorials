@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Custom Initializers
@@ -18,6 +16,7 @@ class Animal
 let animal : Animal = Animal(type: "cat")
 
 animal.type
+
 
 class Car
 {
@@ -50,7 +49,7 @@ tree.type1
 tree.type2
 tree.type3
 
-// error: tree.type1 = nil
+// tree.type1 = nil // error
 print(tree.type1)
 
 tree.type1 = "maple"
@@ -65,7 +64,7 @@ print(tree.type2)
 
 
 tree.type3 = nil
-// error: print(tree.type3!)
+// print(tree.type3!) // error
 
 tree.type3 = "maple"
 print(tree.type3)
@@ -79,7 +78,7 @@ struct Fruit
     var name : String
 }
 
-// error: let pear = Fruit()
+// let pear = Fruit() // error
 let apple = Fruit(name: "apple")
 
 
@@ -114,7 +113,7 @@ struct Meat
     }
 }
 
-// error: let pork = Meat()
+// let pork = Meat // error
 
 
 let ham = Meat(weight: 100.0)
@@ -131,7 +130,7 @@ bacon.color
 bacon.quality
 
 
-// error: let beef = Meat(weight: 0.0 , color: "red" , quality: 1)
+// let beef = Meat(weight: 0.0 , color: "red" , quality: 1) // error
 
 
 
@@ -163,19 +162,19 @@ class Employee : Person
     // convenience initializer
     convenience init(name : String, dateOfBirth : NSDate)
     {
-        let calendar : NSCalendar? = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let calendar : NSCalendar? = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
         
-        let components = calendar!.components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: NSDate(), options: [])
+        let components = calendar!.components(NSCalendar.Unit.year, from: dateOfBirth as Date, to: NSDate() as Date, options: [])
         
-        let age : Int = components.year
+        let age : Int = components.year!
         
         self.init(name: name, dateOfBirth: dateOfBirth, age: age)
     }
 }
 
-let calendar : NSCalendar? = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+let calendar : NSCalendar? = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
 
-let dateOfBirth : NSDate?  = calendar!.dateWithEra(2000, year: 1974, month: 3, day: 2, hour: 0, minute: 0, second: 0, nanosecond: 0)
+let dateOfBirth : NSDate?  = calendar!.date(era: 2000, year: 1974, month: 3, day: 2, hour: 0, minute: 0, second: 0, nanosecond: 0) as NSDate?
 
 let employee : Employee = Employee(name: "Andre", dateOfBirth: dateOfBirth!)
 
@@ -200,9 +199,9 @@ class Hardware
         self.description = description
     }
     
-    convenience init(manufacturer : String, model : String)
+    convenience init(type : String, model : String)
     {
-        self.init(description: manufacturer + " " + model)
+        self.init(description: type + " " + model)
     }
 }
 
@@ -214,7 +213,9 @@ class Tablet : Hardware
 {
     override init(description: String)
     {
-        super.init(description: description + " (tablet)" )
+        super.init(description: description)
+        
+        self.description += " (tablet)"
     }
 }
 
@@ -227,19 +228,33 @@ class Watch : Hardware
 
     override init(description: String)
     {
-        super.init(description: description + " (tablet)" )
+        super.init(description: description)
+
+        self.description += " (watch)"
     }
 }
 
-Phone()
-Phone(description: "iPhone")
-Phone(manufacturer: "Apple", model: "6s")
+var phone : Phone = Phone()
+phone.description
 
-Tablet(description: "tablet")
+phone = Phone(description: "iPhone 6 Plus")
+phone.description
 
-Watch()
-Watch(description: "Apple Watch")
-Watch(manufacturer: "Apple", model: "2")
+phone = Phone(type: "iPhone", model: "6 Plus")
+phone.description
+
+
+var tablet : Tablet = Tablet(description: "iPad 2")
+tablet.description
+
+
+var watch : Watch = Watch()
+
+watch = Watch(description: "Apple Watch 2")
+watch.description
+
+watch = Watch(type: "Apple Watch", model: "2")
+watch.description
 
 
 

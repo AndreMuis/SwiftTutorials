@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Overriding Methods
@@ -36,7 +34,7 @@ class Candy
     {
         get
         {
-            return 0.0;
+            return 0.0
         }
     }
     
@@ -59,19 +57,19 @@ class Candy
     {
         willSet
         {
-            print("Candy : willSet")
+            print("Candy: shape willSet")
         }
         
         didSet
         {
-            print("Candy : didSet")
+            print("Candy: shape didSet")
         }
     }
 }
 
 class JellyBean : Candy
 {
-    // error: override let name : String = ""
+    // override var name : String = "" // error
     
     // error:
     // override var sugar : Float
@@ -99,12 +97,12 @@ class JellyBean : Candy
     {
         willSet
         {
-            print("Jelly Bean : willSet")
+            print("Jelly Bean: shape willSet")
         }
         
         didSet
         {
-            print("Jelly Bean : didSet")
+            print("Jelly Bean: shape didSet")
         }
     }
 }
@@ -122,7 +120,7 @@ jellyBean.color
 candy.color = "blue"
 candy.description
 
-jellyBean.color = "red"
+jellyBean.color = "green"
 jellyBean.description
 
 

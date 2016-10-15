@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 func returnNothing()
 {
@@ -32,16 +31,16 @@ person.lastName
 
 // Default Values
 
-func multiplyValue1(value1 : Double = 10.0, value2: Double = 100.0) -> Double
+func multiply(value1 : Double = 10.0, value2: Double = 100.0) -> Double
 {
     let result : Double = value1 * value2
     
     return result
 }
 
-multiplyValue1(2.0, value2: 3.0)
+multiply(value1 : 2.0, value2: 3.0)
 
-multiplyValue1(2.0)
+multiply(value1 : 2.0)
 
 
 
@@ -59,31 +58,31 @@ func add(list : Int ...) -> Int
     return result
 }
 
-add(1, 2, 3)
+add(list: 1, 2, 3)
 
 
 
-// In-Out Parameters
+// Inout Parameters
 
-func uppercase1(array : [String])
+func uppercase1(array: [String])
 {
     // for index in 0 ..< array.count
     // {
-    //    error: array[index] = array[index].uppercaseString
+    //     array[index] = array[index].uppercaseString // error
     // }
 }
 
-func uppercase2(inout array : [String])
+func uppercase2(array: inout [String])
 {
     for index in 0 ..< array.count
     {
-        array[index] = array[index].uppercaseString
+        array[index] = array[index].uppercased()
     }
 }
 
 var names : [String] = ["Andre", "Lottie", "Jake"]
 
-uppercase2(&names)
+uppercase2(array: &names)
 
 
 
@@ -91,16 +90,16 @@ uppercase2(&names)
 
 func increment(value : Int) -> Int
 {
-    let result : Int = value + 1;
+    let result : Int = value + 1
     
-    return result;
+    return result
 }
 
 func decrement(value : Int) -> Int
 {
-    let result : Int = value - 1;
+    let result : Int = value - 1
     
-    return result;
+    return result
 }
 
 func modifyByOne(increase : Bool) -> (Int) -> Int
@@ -119,10 +118,10 @@ func modifyByOne(increase : Bool) -> (Int) -> Int
     return function
 }
 
-var function = modifyByOne(true)
+var function = modifyByOne(increase: true)
 function(5)
 
-function = modifyByOne(false)
+function = modifyByOne(increase: false)
 function(5)
 
 
@@ -133,14 +132,14 @@ func modifyByTwo(value: Int, increase : Bool) -> Int
 {
     func increment(value : Int) -> Int
     {
-        let result : Int = value + 2;
+        let result : Int = value + 2
         
         return result;
     }
     
     func decrement(value : Int) -> Int
     {
-        let result : Int = value - 2;
+        let result : Int = value - 2
         
         return result;
     }
@@ -161,9 +160,9 @@ func modifyByTwo(value: Int, increase : Bool) -> Int
     return result
 }
 
-modifyByTwo(5, increase: true)
+modifyByTwo(value: 5, increase: true)
 
-modifyByTwo(5, increase: false)
+modifyByTwo(value: 5, increase: false)
 
 
 

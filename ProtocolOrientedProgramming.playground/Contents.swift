@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Protocol Inheritance
@@ -49,7 +47,7 @@ struct CEO : Employee
 
 protocol Dog
 {
-    var name : String {get}
+    var breed : String {get}
     var age : Int {get}
     
     func bark() -> String
@@ -58,9 +56,9 @@ protocol Dog
 
 extension Dog
 {
-    var name : String
+    var breed : String
     {
-        return "Dog"
+        return ""
     }
     
     var age : Int
@@ -70,31 +68,31 @@ extension Dog
 
     func bark() -> String
     {
-        return "bark (extension)"
+        return "bark"
     }
 
-    func sit() -> String
-    {
-        return "sit (extension)"
-    }
-}
-
-struct Greyhound : Dog
-{
-    var age : Int
-    {
-        return 7
-    }
-    
     func sit() -> String
     {
         return "sit"
     }
 }
 
+struct Greyhound : Dog
+{
+    var breed : String
+    {
+        return "Racing Greyhound"
+    }
+    
+    func sit() -> String
+    {
+        return "sit (Greyhound)"
+    }
+}
+
 let greyhound : Greyhound = Greyhound()
 
-greyhound.name
+greyhound.breed
 greyhound.age
 greyhound.bark()
 greyhound.sit()
@@ -141,14 +139,14 @@ protocol File
 
 struct PDF : File
 {
+    var name : String
+    var contents : String
+
     init(name : String, contents : String)
     {
         self.name = name
         self.contents = contents
     }
-    
-    var name : String = ""
-    var contents: String = ""
 }
 
 let pdf1 = PDF(name: "resume.pdf" , contents: "abc")

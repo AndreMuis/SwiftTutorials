@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Computed Properties
@@ -9,13 +7,14 @@ struct Person
 {
     var height : Float
     var weight : Float
+    
     var bmi : Float
-        {
+    {
         get
         {
             return self.weight / pow(self.height, 2.0)
         }
-        set (newBMI)
+        set(newBMI)
         {
             self.weight = newBMI * pow(self.height, 2.0)
         }
@@ -41,7 +40,7 @@ person.bmi
 struct Employee
 {
     var name : String
-        {
+    {
         willSet(newName)
         {
             print("willSet: current name = \(self.name), new name = \(newName)")

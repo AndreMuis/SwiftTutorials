@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Mutating Methods
@@ -9,7 +7,7 @@ struct Building
 {
     var height : Float = 100.0
     
-    mutating func changeHeightByDelta(delta : Float)
+    mutating func changeHeight(delta : Float)
     {
         self.height += delta
     }
@@ -17,7 +15,7 @@ struct Building
 
 var library : Building = Building(height: 100.0)
 
-library.changeHeightByDelta(50.0)
+library.changeHeight(delta: 50.0)
 library.height
 
 
@@ -46,4 +44,16 @@ class IPhone
 Spider.baseCharacteristics()
 
 IPhone.description()
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,53 +1,44 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
-enum ParameterError : ErrorType
+enum ParameterError : Error
 {
-    case NotSpecified
-    case Invalid
+    case FileNameEmpty
 }
 
-enum FileError : ErrorType
+enum FileError : Error
 {
-    case TooShort
-    case TooLong
+    case FileNameTooShort
+    case FileNameTooLong
 }
 
-func processFileWithName(fileName : String?) throws -> String
+func processFile(fileName : String) throws -> String
 {
-    if let someFileName = fileName
+    if fileName != ""
     {
-        if someFileName != ""
+        if fileName.characters.count <= 3
         {
-            if someFileName.characters.count <= 3
-            {
-                throw FileError.TooShort
-            }
-            else if someFileName.characters.count >= 10
-            {
-                throw FileError.TooLong
-            }
-            else
-            {
-                return "Processed File Contents"
-            }
+            throw FileError.FileNameTooShort
+        }
+        else if fileName.characters.count >= 10
+        {
+            throw FileError.FileNameTooLong
         }
         else
         {
-            throw ParameterError.Invalid
+            return "Processed File Contents"
         }
     }
     else
     {
-        throw ParameterError.NotSpecified
+        throw ParameterError.FileNameEmpty
     }
 }
 
 
 do
 {
-    let contents : String = try processFileWithName("butterfly")
+    let contents : String = try processFile(fileName: "butterfly")
 }
 catch let error
 {
@@ -57,7 +48,7 @@ catch let error
 
 do
 {
-    let contents : String = try processFileWithName("")
+    let contents : String = try processFile(fileName: "")
 }
 catch let error
 {
@@ -67,7 +58,7 @@ catch let error
 
 do
 {
-    let contents : String = try processFileWithName("me")
+    let contents : String = try processFile(fileName: "me")
 }
 catch let error as ParameterError
 {
@@ -86,7 +77,7 @@ catch let error
 
 // Optional Error Handling
 
-if let contents : String = try? processFileWithName("me")
+if let contents : String = try? processFile(fileName: "me")
 {
     print ("no error returned")
 }
@@ -95,13 +86,13 @@ else
     print ("error returned")
 }
 
-// error: let contents2 : String = try! processFileWithName("me")
+// error: let contents2 : String = try! processFile(fileName: "me")
 
 
 
 // Guard
 
-enum MathError : ErrorType
+enum MathError : Error
 {
     case DivideByZero
     case Overflow
@@ -110,7 +101,7 @@ enum MathError : ErrorType
 var validationPassedCount : Int = 0
 var history : [(Float, Float)] = []
 
-func divideX(x : Float, y : Float) throws -> Float
+func divide(x : Float, y : Float) throws -> Float
 {
     defer
     {
@@ -124,13 +115,13 @@ func divideX(x : Float, y : Float) throws -> Float
     
     validationPassedCount += 1
     
-    return x / y;
+    return x / y
 }
 
 
 do
 {
-    try divideX(3.0, y: 4.0)
+    try divide(x: 3.0, y: 4.0)
 }
 catch let error as MathError
 {
@@ -143,7 +134,7 @@ history
 
 do
 {
-    try divideX(1.0, y: 0.0)
+    try divide(x: 1.0, y: 0.0)
 }
 catch let error as MathError
 {
@@ -152,22 +143,6 @@ catch let error as MathError
 
 validationPassedCount
 history
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 class Person
@@ -14,7 +12,7 @@ person?.firstName = "Andre"
 
 
 if let somePerson = person,
-    someFirstName = somePerson.firstName
+    let someFirstName = somePerson.firstName
 {
     print("1) success")
 }
@@ -25,8 +23,8 @@ else
 
 
 if let somePerson = person,
-    someFirstName = somePerson.firstName,
-    someLastName = somePerson.lastName
+    let someFirstName = somePerson.firstName,
+    let someLastName = somePerson.lastName
 {
     print("2) success")
 }
@@ -34,3 +32,5 @@ else
 {
     print("2) failure")
 }
+
+

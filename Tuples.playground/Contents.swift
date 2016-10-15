@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 let tuple = ("Andre", 100, "cat")
@@ -16,4 +14,6 @@ first
 let tuple2 = (name : "Andre", count : 10)
 
 tuple2.name
+
+
 

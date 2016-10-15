@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 let stringConstant : String = "constant"
 
@@ -21,12 +20,12 @@ var optionalIntVariable : Int?
 
 var newIntVariable = Int(floatVariable)
 
-// error: stringConstant = "Andre"
+// stringConstant = "Andre" // error
+// intVariable = nil // error
 optionalIntVariable = nil
-// error: intVariable = nil
 
 
-for char in stringVariable.characters
+for char : Character in stringVariable.characters
 {
     print(char)
 }

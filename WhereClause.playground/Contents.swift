@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 class Person
@@ -8,13 +6,11 @@ class Person
     var age : Int?
 }
 
-var person : Person? = Person()
-person?.age = 42
+var person : Person = Person()
+person.age = 42
 
 
-if let somePerson = person,
-    someAge = somePerson.age
-    where someAge > 20
+if let age = person.age, age > 20
 {
     print("success")
 }

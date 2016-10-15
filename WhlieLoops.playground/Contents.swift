@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 var count : Int = 0
@@ -11,6 +9,10 @@ while count < 3
     print("count = \(count)")
 }
 
+print()
+
+
+
 count = 0
 
 repeat
@@ -20,7 +22,11 @@ repeat
 }
 while count < 3
 
+print()
 
+
+
+count = 0
 
 while count < 0
 {
@@ -36,5 +42,14 @@ repeat
     print("repeat while")
 }
 while count < 0
+
+
+
+
+
+
+
+
+
 
 

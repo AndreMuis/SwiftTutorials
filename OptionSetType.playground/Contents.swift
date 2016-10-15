@@ -1,9 +1,7 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
-struct PizzaTopping : OptionSetType
+struct PizzaTopping : OptionSet
 {
     let rawValue : Int
     
@@ -12,16 +10,20 @@ struct PizzaTopping : OptionSetType
         self.rawValue = rawValue
     }
     
-    static let Pepperoni = PizzaTopping(rawValue: 1)
-    static let Mushrooms = PizzaTopping(rawValue: 2)
-    static let Onions = PizzaTopping(rawValue: 3)
+    static let Pepperoni : PizzaTopping = PizzaTopping(rawValue: 1 << 0)
+    static let Mushrooms : PizzaTopping = PizzaTopping(rawValue: 1 << 1)
+    static let Onions : PizzaTopping = PizzaTopping(rawValue: 1 << 2)
 }
 
 
-let pizzaToppings = [PizzaTopping.Pepperoni, PizzaTopping.Mushrooms]
+let pizzaToppings : [PizzaTopping] = [PizzaTopping.Pepperoni, PizzaTopping.Mushrooms]
 
 
-PizzaTopping() == PizzaTopping.Pepperoni
+if pizzaToppings.contains(PizzaTopping.Pepperoni)
+{
+    print("contains pepperoni")
+}
+
 
 
 

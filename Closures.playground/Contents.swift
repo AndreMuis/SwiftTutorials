@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 func printHelloFunction()
 {
@@ -55,18 +54,18 @@ let digits : [Int] = [3, 7, 22]
 let digitNameMappings : [Int : String] = [1 : "one", 2 : "two", 3 : "three", 4 : "four", 5 : "five", 6 : "six", 7 : "seven", 8 : "eight", 9 : "nine", 0 : "zero"]
 
 let digitNames : [String] = digits.map()
-    {
-        (digit : Int) -> String in
+{
+    (digit : Int) -> String in
         
-        if let digitName : String = digitNameMappings[digit]
-        {
-            return digitName
-        }
-        else
-        {
-            return "unknown"
-        }
+    if let digitName : String = digitNameMappings[digit]
+    {
+        return digitName
     }
+    else
+    {
+        return "unknown"
+    }
+}
 
 digitNames
 
@@ -106,12 +105,12 @@ func createIncrementor(incrementAmount : Int) -> () -> Int
     return incrementor
 }
 
-let incrementBy5 = createIncrementor(5)
+let incrementBy5 = createIncrementor(incrementAmount: 5)
 incrementBy5()
 incrementBy5()
 incrementBy5()
 
-let incrementBy1 = createIncrementor(1)
+let incrementBy1 = createIncrementor(incrementAmount: 1)
 incrementBy1()
 incrementBy1()
 

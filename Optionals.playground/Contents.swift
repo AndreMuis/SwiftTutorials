@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 let countAsString = "44"
 
@@ -24,10 +23,17 @@ else
     print("fail")
 }
 
-
 let first : String? = "Andre"
-print("\(first!)")
+print("\(first)")
+
+
+let middle : String? = "Jacobus"
+print("\(middle!)")
 
 
 let last : String! = "Muis"
 print("\(last)")
+
+
+
+

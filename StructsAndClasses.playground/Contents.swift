@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 struct SomeStruct
 {
@@ -48,10 +47,20 @@ bmw.model
 
 
 let horse : Animal = Animal(name: "Ed")
-// error: horse.name = ""
+// horse.name = "" // error
 
 let mgb : Car = Car()
 mgb.model = "212"
+
+
+
+
+
+
+
+
+
+
 
 
 

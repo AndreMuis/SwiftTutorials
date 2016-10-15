@@ -1,9 +1,7 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
-func swap<T>(inout first : T, inout second : T)
+func swap<T>(first : inout T, second : inout T)
 {
     let firstSave : T = first
     
@@ -31,17 +29,19 @@ struct Stack<T>
         self.items.append(item)
     }
 
-    mutating func pop()
+    mutating func pop() -> T?
     {
-        self.items.removeLast()
+        let last : T? = self.items.removeLast()
+        
+        return last
     }
 }
 
 var stack : Stack<String> = Stack<String>()
 
-stack.push("first")
-stack.push("second")
-stack.push("third")
+stack.push(item: "first")
+stack.push(item: "second")
+stack.push(item: "third")
 
 stack.items
 
@@ -51,9 +51,9 @@ stack.items
 
 
 
-func addHashValues<T : Hashable>(first first : T, second : T) -> Int
+func subtractHashValues<T : Hashable>(first : T, second : T) -> Int
 {
-    return first.hashValue + second.hashValue
+    return first.hashValue - second.hashValue
 }
 
 let breed = "Ragdoll"
@@ -62,7 +62,7 @@ breed.hashValue
 let spice = "Thyme"
 spice.hashValue
 
-addHashValues(first: breed, second: spice)
+subtractHashValues(first: breed, second: spice)
 
 
 
@@ -72,7 +72,7 @@ protocol Queue
     
     var items : [ItemType] {get}
     
-    mutating func enqueue(item : ItemType)
+    mutating func enqueue(item: ItemType)
     
     mutating func dequeue() -> ItemType
 }
@@ -94,9 +94,9 @@ struct PeopleQueue<T> : Queue
 
 var ticketQueue : PeopleQueue<Int> = PeopleQueue<Int>()
 
-ticketQueue.enqueue(1)
-ticketQueue.enqueue(2)
-ticketQueue.enqueue(3)
+ticketQueue.enqueue(item: 1)
+ticketQueue.enqueue(item: 2)
+ticketQueue.enqueue(item: 3)
 
 ticketQueue.items
 
@@ -107,21 +107,21 @@ ticketQueue.items
 
 
 
-func addQueues<T1 : Queue, T2 : Queue where T1.ItemType == T2.ItemType>
-    (firstQueue firstQueue : T1, secondQueue : T2) -> [T1.ItemType]
+func addQueues<T1 : Queue, T2 : Queue>
+    (firstQueue : T1, secondQueue : T2) -> [T1.ItemType] where T1.ItemType == T2.ItemType
 {
     return firstQueue.items + secondQueue.items
 }
 
 var foodQueue : PeopleQueue<Int> = PeopleQueue<Int>()
 
-foodQueue.enqueue(10)
-foodQueue.enqueue(11)
+foodQueue.enqueue(item: 10)
+foodQueue.enqueue(item: 11)
 
 var tellerQueue : PeopleQueue<Int> = PeopleQueue<Int>()
 
-tellerQueue.enqueue(12)
-tellerQueue.enqueue(13)
+tellerQueue.enqueue(item: 12)
+tellerQueue.enqueue(item: 13)
 
 addQueues(firstQueue: foodQueue, secondQueue: tellerQueue)
 

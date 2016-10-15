@@ -1,6 +1,5 @@
-//: Playground - noun: a place where people can play
+import Foundation
 
-import UIKit
 
 outerLoop: for var outer : Int in 1...4
 {
@@ -14,3 +13,5 @@ outerLoop: for var outer : Int in 1...4
         }
     }
 }
+
+

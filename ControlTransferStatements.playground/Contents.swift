@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 for var count in 1...10
@@ -13,7 +11,6 @@ for var count in 1...10
     print("count = \(count)")
 }
 
-print()
 
 for var count in 1...10
 {

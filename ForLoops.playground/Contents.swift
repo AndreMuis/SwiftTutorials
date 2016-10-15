@@ -1,13 +1,11 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 arc4random()
 
-var numbers : Array<UInt32> = []
+var numbers : [UInt32] = []
 
-for count : Int in 1 ... 5
+for count : Int in 1...5
 {
     numbers.append(arc4random() % 3 + 1)
 }
@@ -21,7 +19,7 @@ for element : UInt32 in numbers
 }
 
 
-let person : Dictionary =
+let person : [String : String] =
 [
     "firstName" : "Andre",
     "lastName" : "Muis"

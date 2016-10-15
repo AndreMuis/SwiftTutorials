@@ -1,6 +1,4 @@
-//: Playground - noun: a place where people can play
-
-import UIKit
+import Foundation
 
 
 // Raw Values
@@ -13,7 +11,7 @@ enum CompassDirection : String
     case West = "West"
 }
 
-let facingDirection : CompassDirection = .East
+let facingDirection : CompassDirection = CompassDirection.East
 
 switch facingDirection
 {
@@ -75,30 +73,7 @@ enum Flavor
     indirect case ThreeFlovors(Flavor, Flavor)
 }
 
-let flavor : Flavor = Flavor.TwoFlovors(.Vanillla, .Chocolate)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let flavor : Flavor = Flavor.TwoFlovors(Flavor.Vanillla, Flavor.Chocolate)
 
 
 
