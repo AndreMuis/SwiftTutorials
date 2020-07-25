@@ -1,176 +1,98 @@
-import Foundation
+import UIKit
 
+// ignoring the return value of a function
 
-func returnNothing()
-{
-    print("return nothing")
+func calc() -> Int {
+    print("running calc")
+    return 100
+}
+				
+let _ = calc()
+
+// functions with multiple return values
+
+func getPoint() -> (x: Int, y: Int)? {
+    return (2, 3)
 }
 
-returnNothing()
-
-
-func returnAnimal() -> String
-{
-    return "cat"
+if let point = getPoint() {
+    print("\(point.x) \(point.y)")
 }
 
-returnAnimal()
+// specifying argument labels
 
-
-func getPerson() -> (firstName : String, lastName : String)
-{
-    return ("Andre", "Muis")
+func someFunc(argumentLabel parameterName: Int) {
+    print(parameterName)
 }
 
-let person = getPerson()
+someFunc(argumentLabel: 101)
 
-person.firstName
-person.lastName
+// omitting argument labels
 
-
-
-// Default Values
-
-func multiply(value1 : Double = 10.0, value2: Double = 100.0) -> Double
-{
-    let result : Double = value1 * value2
-    
-    return result
+func anotherFunction(_ parameterName: Int) {
+    print(parameterName)
 }
 
-multiply(value1 : 2.0, value2: 3.0)
+anotherFunction(203)
 
-multiply(value1 : 2.0)
+// default parameter values
 
-
-
-// Variadic Parameters
-
-func add(list : Int ...) -> Int
-{
-    var result : Int = 0
-    
-    for value : Int in list
-    {
-        result += value
-    }
-    
-    return result
+func saveInfo(name: String, age: Int = 30) {
+    print("\(name) \(age)")
 }
 
-add(list: 1, 2, 3)
+saveInfo(name: "Andre", age: 50)
+saveInfo(name: "Andre")
 
+// variadic parameters
 
-
-// Inout Parameters
-
-func uppercase1(array: [String])
-{
-    // for index in 0 ..< array.count
-    // {
-    //     array[index] = array[index].uppercaseString // error
-    // }
-}
-
-func uppercase2(array: inout [String])
-{
-    for index in 0 ..< array.count
-    {
-        array[index] = array[index].uppercased()
+func calc(numbers: Int...) {
+    for number in numbers {
+        print(number)
     }
 }
 
-var names : [String] = ["Andre", "Lottie", "Jake"]
+calc(numbers: 1, 2, 3)
 
-uppercase2(array: &names)
+// in-out parameters
 
-
-
-// Returning Types
-
-func increment(value : Int) -> Int
-{
-    let result : Int = value + 1
-    
-    return result
+func triple(val: inout Int) {
+    val *= 3
 }
 
-func decrement(value : Int) -> Int
-{
-    let result : Int = value - 1
-    
-    return result
+var num: Int = 3
+triple(val: &num)
+print(num)
+
+// function types
+
+func add(a: Int, b: Int) -> Int {
+    return a + b
 }
 
-func modifyByOne(increase : Bool) -> (Int) -> Int
-{
-    let function : (Int) -> Int
-    
-    if (increase)
-    {
-        function = increment
-    }
-    else
-    {
-        function = decrement
-    }
-    
-    return function
+func multiply(a: Int, b: Int) -> Int {
+    return a * b
 }
 
-var function = modifyByOne(increase: true)
-function(5)
+var operation: (Int, Int) -> Int = add(a:b:)
+print(operation(3, 4))
 
-function = modifyByOne(increase: false)
-function(5)
+operation = multiply(a:b:)
+print(operation(3, 4))
+  
+// function types as parameter types
 
-
-
-// Nested Functions
-
-func modifyByTwo(value: Int, increase : Bool) -> Int
-{
-    func increment(value : Int) -> Int
-    {
-        let result : Int = value + 2
-        
-        return result;
-    }
-    
-    func decrement(value : Int) -> Int
-    {
-        let result : Int = value - 2
-        
-        return result;
-    }
-    
-    let function : (Int) -> Int
-    
-    if (increase)
-    {
-        function = increment
-    }
-    else
-    {
-        function = decrement
-    }
-    
-    let result : Int = function(value)
-    
-    return result
+func printOperationResult(operation: (Int, Int) -> Int, a: Int, b: Int) {
+    print(operation(a, b))
 }
 
-modifyByTwo(value: 5, increase: true)
+printOperationResult(operation: add(a:b:), a: 50, b: 25)
 
-modifyByTwo(value: 5, increase: false)
+// function types as return types
 
+func getAddOperation() -> (Int, Int) -> Int {
+    return add(a:b:)
+}
 
-
-
-
-
-
-
-
-
+print(getAddOperation()(60, 20))
 
